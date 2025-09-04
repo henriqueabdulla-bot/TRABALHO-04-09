@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudConnect | Clientes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Meus Clientes</h1>
+                <p>Uma lista simples e funcional de contatos.</p>
+            </div>
+            <button id="add-client-btn" class="btn btn-primary">
+                <i data-feather="plus"></i>
+                Novo Cliente
+            </button>
+        </header>
+
+        <main class="list-container">
+            <div id="loader" class="loader"></div>
+            
+            <div id="client-list-content" class="hidden">
+                <div class="list-header">
+                    <div class="header-name">Nome</div>
+                    <div class="header-contact">Contato</div>
+                    <div class="header-actions">Ações</div>
+                </div>
+                <div id="client-list"></div>
+            </div>
+
+            <div id="empty-state" class="empty-state hidden">
+                <i data-feather="users" class="empty-icon"></i>
+                <h2>Nenhum cliente por aqui</h2>
+                <p>Que tal adicionar o primeiro?</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-container" class="modal-container hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Adicionar Novo Cliente</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <form id="client-form">
+                <input type="hidden" id="client-id">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Ex: Ana Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Ex: ana.silva@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Ex: (41) 99999-8888">
+                </div>
+                <div class="form-actions">
+                    <button id="cancel-btn" type="button" class="btn btn-secondary">Cancelar</button>
+                    <button id="save-btn" type="submit" class="btn btn-primary">Salvar Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="toast-container"></div>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
+</body>
+</html>
